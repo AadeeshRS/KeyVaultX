@@ -54,10 +54,10 @@ const Manager = () => {
     }
 
     return (
-        <>
+        <div className="min-h-[calc(100vh-64px)] w-full relative">
             <ToastContainer autoClose={2000} theme='dark' />
-            <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-            <div className="mx-auto max-w-5xl px-14 py-7 text-white">
+            <div className="fixed inset-0 -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+            <div className="relative z-10 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-7 text-white">
                 <h1 className='py-1.5 text-3xl font-bold text-center'>
                     <span className='py-1.5 text-yellow-500'>
                         &lt;
@@ -65,9 +65,9 @@ const Manager = () => {
                     KeyVault<span className='py-1.5 text-yellow-500'>X/&gt;</span>
                 </h1>
                 <p className='py-1.5 text-center text-lg'>Your own Password Manager</p>
-                <div className='py-1.5 text-white flex flex-col p-4 gap-4 items-center'>
+                <div className='w-full py-1.5 text-white flex flex-col gap-4 items-center'>
                     <input type="py-1.5 text" name="site" value={form.site} onChange={handleChange} placeholder='Enter the website URL' className='rounded-2xl border border-yellow-500 bg-white p-4 py-1 text-black w-full' />
-                    <div className="flex w-full gap-6 justify-between">
+                    <div className="w-full flex flex-col sm:flex-row gap-4 sm:gap-6">
                         <input type="py-1.5 text" name="username" value={form.username} onChange={handleChange} placeholder='Enter Username' className='border border-yellow-500 bg-white p-4 py-1 rounded-2xl text-black my-3 w-full' />
                         <div className="relative">
                             <input
@@ -113,37 +113,43 @@ const Manager = () => {
                             {passwordArray.map((item) => {
                                 return (
                                     <tr key={item.site}>
-                                        <td className='py-0.5 text-center border border-black'>
-                                            <div className='flex items-center justify-center gap-2'>
-                                                <a href={item.site} target='_blank' className='break-all'>{item.site}</a>
-                                                <span onClick={() => copyText(item.site)} className='cursor-pointer'>
-                                                    <lord-icon className='py-1 w-5 bottom-0.5'
-                                                        src="https://cdn.lordicon.com/xuoapdes.json"
-                                                        trigger="hover">
-                                                    </lord-icon>
-                                                </span>
+                                        <td className='py-2 px-1 border border-black'>
+                                            <div className='relative w-full'>
+                                                <div className='flex flex-col items-center'>
+                                                    <a href={item.site} target='_blank' className='break-all text-center w-full px-1'>{item.site}</a>
+                                                    <span onClick={() => copyText(item.site)} className='sm:absolute sm:right-2 sm:top-1/2 sm:transform sm:-translate-y-1/2 cursor-pointer w-6 h-6 flex items-center justify-center mt-1 sm:mt-0'>
+                                                        <lord-icon className='w-4 h-4 sm:w-5 sm:h-5'
+                                                            src="https://cdn.lordicon.com/xuoapdes.json"
+                                                            trigger="hover">
+                                                        </lord-icon>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td className='py-0.5 text-center border border-black'>
-                                            <div className='flex items-center justify-center gap-2'>
-                                                <span className='break-all'>{item.username}</span>
-                                                <span onClick={() => copyText(item.username)} className='cursor-pointer'>
-                                                    <lord-icon className='py-1 w-5 bottom-0.5'
-                                                        src="https://cdn.lordicon.com/xuoapdes.json"
-                                                        trigger="hover">
-                                                    </lord-icon>
-                                                </span>
+                                        <td className='py-2 px-1 border border-black'>
+                                            <div className='relative w-full'>
+                                                <div className='flex flex-col items-center'>
+                                                    <span className='break-all text-center w-full px-1'>{item.username}</span>
+                                                    <span onClick={() => copyText(item.username)} className='sm:absolute sm:right-2 sm:top-1/2 sm:transform sm:-translate-y-1/2 cursor-pointer w-6 h-6 flex items-center justify-center mt-1 sm:mt-0'>
+                                                        <lord-icon className='w-4 h-4 sm:w-5 sm:h-5'
+                                                            src="https://cdn.lordicon.com/xuoapdes.json"
+                                                            trigger="hover">
+                                                        </lord-icon>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td className='py-0.5 text-center border border-black'>
-                                            <div className='flex items-center justify-center gap-2'>
-                                                <span className='break-all display-'>{item.password}</span>
-                                                <span onClick={() => copyText(item.password)} className='cursor-pointer'>
-                                                    <lord-icon className='py-1 w-5 bottom-0.5'
-                                                        src="https://cdn.lordicon.com/xuoapdes.json"
-                                                        trigger="hover">
-                                                    </lord-icon>
-                                                </span>
+                                        <td className='py-2 px-1 border border-black'>
+                                            <div className='relative w-full'>
+                                                <div className='flex flex-col items-center'>
+                                                    <span className='break-all text-center w-full px-1'>{item.password}</span>
+                                                    <span onClick={() => copyText(item.password)} className='sm:absolute sm:right-2 sm:top-1/2 sm:transform sm:-translate-y-1/2 cursor-pointer w-6 h-6 flex items-center justify-center mt-1 sm:mt-0'>
+                                                        <lord-icon className='w-4 h-4 sm:w-5 sm:h-5'
+                                                            src="https://cdn.lordicon.com/xuoapdes.json"
+                                                            trigger="hover">
+                                                        </lord-icon>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
                                         <td className='py-0.5 text-center border border-black'>
@@ -163,7 +169,7 @@ const Manager = () => {
                     </table>}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
