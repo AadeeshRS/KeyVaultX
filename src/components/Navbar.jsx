@@ -11,14 +11,14 @@ const Navbar = () => {
                 </div>
             <ul className='mx-20'>
 
-                <li className='flex gap-4'>
+                {/* <li className='flex gap-4'>
                     <a href="#" className='hover:font-bold transition-normal duration-200'>Home</a>
                     <a href="#" className='hover:font-bold tranrtsition-normal duration-200'>About</a>
                     <a href="#" className='hover:font-bold transition-normal duration-200'>Contact</a>
-                </li>
+                </li> */}
             </ul>
             <div>
-                <img className='invert cursor-pointer mx-5' width={110} src="/icons/github.png" alt="" />
+                <img className='invert cursor-pointer mx-20' width={110} src="/icons/github.png" alt="" />
             </div>
         </nav>
     )
